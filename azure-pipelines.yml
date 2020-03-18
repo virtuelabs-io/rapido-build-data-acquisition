@@ -33,8 +33,9 @@ steps:
     sudo ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt
     cd ../
     transcrypt --yes -c aes-256-cbc -p $ENCRYPTED_BY_ME
-    apt install python3.8
+    sudo apt install python3.8
     python --version
+    python3.8 --version
   displayName: 'Transcript Initialization'
   env:
     ENCRYPTED_BY_ME: $(ENCRYPTED_BY_ME)
