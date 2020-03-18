@@ -33,10 +33,14 @@ steps:
     sudo ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt
     cd ../
     transcrypt --yes -c aes-256-cbc -p $ENCRYPTED_BY_ME
+    sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt-get update
     sudo apt-get install python3.8
+    sudo apt-get install python3.8-dev
+    sudo apt-get install python3.8-distutils
     python --version
     python3 --version
+    python3.8 --version
   displayName: 'Transcript Initialization'
   env:
     ENCRYPTED_BY_ME: $(ENCRYPTED_BY_ME)
