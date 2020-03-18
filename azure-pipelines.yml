@@ -35,7 +35,7 @@ steps:
     transcrypt --yes -c aes-256-cbc -p $ENCRYPTED_BY_ME
     sudo apt install python3.8
     python --version
-    python3.8 --version
+    python3 --version
   displayName: 'Transcript Initialization'
   env:
     ENCRYPTED_BY_ME: $(ENCRYPTED_BY_ME)
