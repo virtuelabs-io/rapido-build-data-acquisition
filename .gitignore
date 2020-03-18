@@ -98,3 +98,6 @@ About
 /test/*.xml
 venv/
 **/__pycache__
+.vscode/
+.vscode
+.vscode/
