@@ -17,15 +17,17 @@ class CloudUtils(object):
 
     @staticmethod
     def publishMessageToFirehose(message):
+        log = logging.getLogger(__name__)
         if pc.DELIVERY_STREAM not in os.environ:
             raise ValueError("Environment variable DELIVERY_STREAM not found")
         print("Deliverying message to Firehose with id: {0}".format(message['header']['eventId']))
-        CloudUtils.getFirehoseClient().put_record(
+        response = CloudUtils.getFirehoseClient().put_record(
             DeliveryStreamName=os.environ[pc.DELIVERY_STREAM],
             Record={
-                'Data': json.dumps(message, indent=0)
+                'Data': str(message) + '\n'
             }
         )
+        log.info(response)
         return {
             "statusCode": 201
         }

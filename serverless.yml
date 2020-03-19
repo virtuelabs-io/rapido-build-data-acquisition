@@ -2,7 +2,7 @@ service: DataAcquisition
 
 provider:
   name: aws
-  runtime: python3.8
+  runtime: python3.6
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'eu-west-2'}
 
@@ -46,11 +46,11 @@ functions:
       DELIVERY_STREAM: rapido-data-acquisition-click-stream-${self:provider.stage}
     tags:
       purpose: lambda function to push Click stream data to the data lake
-    events:
-      - http:
-          path: /data-acquisition/product-view
-          method: post
-          integration: lambda
+    # events:
+    #   - http:
+    #       path: /data-acquisition/product-view
+    #       method: post
+    #       integration: lambda
         #   cors:
         #     origins:
         #       - '*'
